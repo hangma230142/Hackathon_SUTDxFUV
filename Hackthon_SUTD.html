@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passii</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #f5e1fc, white);
+            margin: 0;
+            padding: 0;
+            color: #4b0082;
+            overflow-x: hidden;
+        }
+        header {
+            background: transparent;
+            color: rebeccapurple;
+            padding: 25px 1px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+            width: 100%;
+            z-index: 1000;
+        }
+        .menu-toggle {
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            margin-left: 20px;
+        }
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            padding-top: 50px;
+        }
+        .menu.open {
+            transform: translateX(0);
+        }
+        .menu a {
+            color: #ffffff;
+            font-size: 18px;
+            text-decoration: none;
+            margin: 10px 0;
+        }
+        .menu .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #ffffff;
+        }
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background: url('HTML');
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: rebeccapurple;
+            font-size: 50px;
+            font-weight: bold;
+        }
+        .featured-items {
+            padding: 50px;
+            text-align: center;
+        }
+        .carousel-container {
+            position: relative;
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .carousel {
+            display: flex;
+            gap: 10px;
+            scroll-snap-type: x mandatory;
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+        .item {
+            min-width: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .story-section {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #4a0461;
+            color: white;
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .social-icons a:hover {
+            transform: scale(1.1);
+        }
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</header>
+
+<div class="menu" id="menu">
+    <div class="dropdown">
+        <button class="dropbtn">SHOP ▼</button>
+        <div class="dropdown-content">
+            <a href="#">Bottoms</a>
+            <a href="#">Dresses</a>
+            <a href="#">Jackets</a>
+            <a href="#">T-Shirts</a>
+            <a href="#">Coats</a>
+            <a href="#">Accessories</a>
+        </div>
+    </div>
+    <a href="#">STATION</a>
+</div>
+
+<style>
+    .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        padding-top: 50px;
+    }
+
+    .menu.open {
+        transform: translateX(0);
+    }
+
+    .dropdown {
+        text-align: center;
+        width: 100%;
+        position: relative;
+    }
+
+    .dropbtn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: max-content;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 10px;
+        border-radius: 5px;
+        white-space: nowrap;
+    }
+
+    .dropdown-content a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        margin: 0 10px;
+        display: inline-block;
+    }
+
+    .dropdown-content a:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Khi hover vào SHOP, menu con sẽ hiển thị theo hàng ngang */
+    .dropdown:hover .dropdown-content {
+        display: flex;
+        flex-direction: row;
+    }
+</style>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("menu").classList.toggle("open");
+    }
+</script>
+
+<div class="hero">Welcome to Passii Station</div>
+
+<div class="featured-items">
+    <h2>Featured Items</h2>
+    <div class="carousel-container">
+        <div class="carousel">
+            <img class="item" src="HTML/items1.jpg" >
+            <img class="item" src="HTML/items2.jpg" >
+            <img class="item" src="HTML/items3.jpg" >
+            <img class="item" src="HTML/items4.jpg" >
+            <img class="item" src="HTML/items5.jpg" >
+        </div>
+    </div>
+</div>
+
+<div class="story-section">
+    <h2>Our Mission</h2>
+    <p>We believe in sustainable fashion and the power of giving clothes a second life. Every piece has a story, and it doesn’t have to end after one owner.</p>
+    <p>By choosing secondhand fashion, you’re not just reducing waste—you’re redefining style and making a statement for a greener future.</p>
+    <p>Less waste, more style. Make secondhand the first choice.</p>
+</div>
+
+<div class="footer">
+    &copy; 2024 PASSII STATION
+    <div class="social-icons">
+        <a href="https://www.facebook.com/passii" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/passii" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com/@passii" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/3046/3046120.png" alt="TikTok">
+        </a>
+    </div>
+</div>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("menu");
+        menu.classList.toggle("open");
+    }
+</script>
+</body>
+</html>
