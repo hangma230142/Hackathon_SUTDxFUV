@@ -16,7 +16,7 @@
         header {
             background: transparent;
             color: rebeccapurple;
-            padding: 25px 1px;
+            padding: 25px 10px;
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -26,48 +26,9 @@
             width: 100%;
             z-index: 1000;
         }
-        .menu-toggle {
-            font-size: 24px;
-            cursor: pointer;
-            color: white;
-            margin-left: 20px;
-        }
-        .menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 250px;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-            padding-top: 50px;
-        }
-        .menu.open {
-            transform: translateX(0);
-        }
-        .menu a {
-            color: #ffffff;
-            font-size: 18px;
-            text-decoration: none;
-            margin: 10px 0;
-        }
-        .menu .close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 30px;
-            cursor: pointer;
-            color: #ffffff;
-        }
         .hero {
             width: 100%;
             height: 100vh;
-            background: url('HTML');
             display: flex;
             align-items: center;
             justify-content: center;
@@ -76,48 +37,64 @@
             font-size: 50px;
             font-weight: bold;
         }
+
+        /* Featured Items Section */
         .featured-items {
             padding: 50px;
             text-align: center;
         }
+
         .carousel-container {
             position: relative;
             width: 80%;
             margin: auto;
             overflow: hidden;
         }
+
         .carousel {
             display: flex;
             gap: 10px;
             scroll-snap-type: x mandatory;
-            overflow-x: scroll;
+            overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
+            cursor: grab;
         }
+
         .carousel::-webkit-scrollbar {
             display: none;
         }
+
         .item {
             min-width: 250px;
+            height: 250px;
             border-radius: 10px;
             overflow: hidden;
+            scroll-snap-align: start;
+            user-select: none;
         }
-        .story-section {
-            text-align: center;
-            padding: 80px 20px;
+
+        .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
+
+        /* Footer */
         .footer {
             text-align: center;
             padding: 20px;
             background: #4a0461;
             color: white;
         }
+
         .social-icons {
             display: flex;
             gap: 15px;
             justify-content: center;
             margin-top: 20px;
         }
+
         .social-icons a {
             display: inline-block;
             width: 40px;
@@ -130,9 +107,11 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
+
         .social-icons a:hover {
             transform: scale(1.1);
         }
+
         .social-icons img {
             width: 24px;
             height: 24px;
@@ -140,118 +119,24 @@
     </style>
 </head>
 <body>
+
 <header>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    Passii Station
 </header>
-
-<div class="menu" id="menu">
-    <div class="dropdown">
-        <button class="dropbtn">SHOP ▼</button>
-        <div class="dropdown-content">
-            <a href="#">Bottoms</a>
-            <a href="#">Dresses</a>
-            <a href="#">Jackets</a>
-            <a href="#">T-Shirts</a>
-            <a href="#">Coats</a>
-            <a href="#">Accessories</a>
-        </div>
-    </div>
-    <a href="#">STATION</a>
-</div>
-
-<style>
-    .menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 250px;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        padding-top: 50px;
-    }
-
-    .menu.open {
-        transform: translateX(0);
-    }
-
-    .dropdown {
-        text-align: center;
-        width: 100%;
-        position: relative;
-    }
-
-    .dropbtn {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 18px;
-        cursor: pointer;
-        padding: 10px;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        top: 40px;
-        left: 0;
-        width: max-content;
-        background: rgba(0, 0, 0, 0.9);
-        padding: 10px;
-        border-radius: 5px;
-        white-space: nowrap;
-    }
-
-    .dropdown-content a {
-        color: white;
-        text-decoration: none;
-        padding: 10px;
-        margin: 0 10px;
-        display: inline-block;
-    }
-
-    .dropdown-content a:hover {
-        background: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Khi hover vào SHOP, menu con sẽ hiển thị theo hàng ngang */
-    .dropdown:hover .dropdown-content {
-        display: flex;
-        flex-direction: row;
-    }
-</style>
-
-<script>
-    function toggleMenu() {
-        document.getElementById("menu").classList.toggle("open");
-    }
-</script>
 
 <div class="hero">Welcome to Passii Station</div>
 
 <div class="featured-items">
     <h2>Featured Items</h2>
     <div class="carousel-container">
-    <div class="carousel">
-       <img class="item" src="/Hackathon_SUTDxFUV/images/items1.jpg">
-       <img class="item" src="/Hackathon_SUTDxFUV/images/items2.jpg">
-       <img class="item" src="/Hackathon_SUTDxFUV/images/items3.jpg">
-       <img class="item" src="/Hackathon_SUTDxFUV/images/items4.jpg">
-       <img class="item" src="/Hackathon_SUTDxFUV/images/items5.jpg">
+        <div class="carousel">
+            <div class="item"><img src="images/items1.jpg"></div>
+            <div class="item"><img src="images/items2.jpg"></div>
+            <div class="item"><img src="images/items3.jpg"></div>
+            <div class="item"><img src="images/items4.jpg"></div>
+            <div class="item"><img src="images/items5.jpg"></div>
+        </div>
     </div>
-</div>
-
-
-<div class="story-section">
-    <h2>Our Mission</h2>
-    <p>We believe in sustainable fashion and the power of giving clothes a second life. Every piece has a story, and it doesn’t have to end after one owner.</p>
-    <p>By choosing secondhand fashion, you’re not just reducing waste—you’re redefining style and making a statement for a greener future.</p>
-    <p>Less waste, more style. Make secondhand the first choice.</p>
 </div>
 
 <div class="footer">
@@ -270,10 +155,51 @@
 </div>
 
 <script>
-    function toggleMenu() {
-        var menu = document.getElementById("menu");
-        menu.classList.toggle("open");
-    }
+    const carousel = document.querySelector('.carousel');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+        carousel.style.cursor = 'grabbing';
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+        isDown = false;
+        carousel.style.cursor = 'grab';
+    });
+
+    carousel.addEventListener('mouseup', () => {
+        isDown = false;
+        carousel.style.cursor = 'grab';
+    });
+
+    carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 2; // Tăng tốc độ trượt
+        carousel.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch swipe (Mobile)
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    carousel.addEventListener('touchmove', (e) => {
+        touchEndX = e.touches[0].clientX;
+        const move = touchStartX - touchEndX;
+        carousel.scrollLeft += move * 1.5;
+    });
 </script>
+
 </body>
 </html>
+
